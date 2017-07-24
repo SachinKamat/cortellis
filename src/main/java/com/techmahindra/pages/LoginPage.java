@@ -19,7 +19,7 @@ public class LoginPage extends PageObject{
     @FindBy(xpath="//*[@name='submit']")
     WebElementFacade SubmitBtn;
 
-    @FindBy(xpath = "//*[@id='topNav']/div[2][contains(text(),'FullPerfUser')]")
+    @FindBy(xpath = "//*[@id='topNav']/div[2][contains(text(),'auto.full5')]")
     WebElementFacade verifyUser;
 
     @FindBy(xpath=".//*[@title='Logout']")
