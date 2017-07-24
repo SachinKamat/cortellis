@@ -25,15 +25,20 @@ public class LoginPage extends PageObject{
     @FindBy(xpath=".//*[@title='Logout']")
     WebElement LogOut;
 
+    HomePage homePage;
+
     public void loginUser() throws InterruptedException {
         getDriver().manage().window().maximize();
-        System.out.println("Entering the Username ");
-        UserName.sendKeys("RegressionFullUser2");
-        System.out.println("Entering the Password ");
-        Password.sendKeys("Test@123");
-        System.out.println("CLicking on the submit button ");
-        SubmitBtn.click();
-        Thread.sleep(2000);
+        login();
+        int counter=0;
+        String currentURL = getDriver().getCurrentUrl().toLowerCase();
+        while ((currentURL.contains("kickout")  && counter < 4)){
+            homePage.open();
+            Thread.sleep(2000);
+            login();
+            currentURL = getDriver().getCurrentUrl().toLowerCase();
+            counter++;
+        }
     }
 
     public boolean userIsPresent() {
@@ -43,6 +48,16 @@ public class LoginPage extends PageObject{
     public void logoutUser() throws InterruptedException {
         System.out.println("Logged Out from the application");
         LogOut.click();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
+    }
+
+    public void login() throws InterruptedException {
+        System.out.println("Entering the Username ");
+        UserName.sendKeys("RegressionFullUser3");
+        System.out.println("Entering the Password ");
+        Password.sendKeys("Test@123");
+        System.out.println("CLicking on the submit button ");
+        SubmitBtn.click();
+        Thread.sleep(2000);
     }
 }
