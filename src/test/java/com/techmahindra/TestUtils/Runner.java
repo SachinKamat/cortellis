@@ -14,8 +14,3 @@ import org.junit.runner.RunWith;
         , glue = {"com.techmahindra"})
 public class Runner{}
 
-//@RunWith(CucumberWithSerenity.class)
-//@CucumberOptions(format = {"pretty","html:target/cucumber-htmlreport","junit:target/cucumber-junit-report/cuc.xml"},
-//        glue = {"com.techmahindra"}, features = {"src/test/resources/features/"}, tags = {"@Feature_LS31004_CDI_Orphan_and_Fast_drug_advance_search"})
-//public class Runner{}
-

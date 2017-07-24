@@ -13,9 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by RY00485964 on 7/24/2017.
- */
 public class QuickSearch extends PageObject {
     @Steps
     LoginPage loginpage;
