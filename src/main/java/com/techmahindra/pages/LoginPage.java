@@ -28,9 +28,9 @@ public class LoginPage extends PageObject{
     public void loginUser() throws InterruptedException {
         getDriver().manage().window().maximize();
         System.out.println("Entering the Username ");
-        UserName.sendKeys("FullPerfUser023");
+        UserName.sendKeys("auto.full5");
         System.out.println("Entering the Password ");
-        Password.sendKeys("Test@123");
+        Password.sendKeys("Testing@123");
         System.out.println("CLicking on the submit button ");
         SubmitBtn.click();
         Thread.sleep(2000);
