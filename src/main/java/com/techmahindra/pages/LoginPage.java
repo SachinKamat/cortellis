@@ -19,7 +19,7 @@ public class LoginPage extends PageObject{
     @FindBy(xpath="//*[@name='submit']")
     WebElementFacade SubmitBtn;
 
-    @FindBy(xpath = "//*[@id='topNav']/div[2][contains(text(),'auto.full5')]")
+    @FindBy(xpath = "//*[@id='topNav']/div[2][contains(text(),'RegressionFullUser')]")
     WebElementFacade verifyUser;
 
     @FindBy(xpath=".//*[@title='Logout']")
@@ -28,9 +28,9 @@ public class LoginPage extends PageObject{
     public void loginUser() throws InterruptedException {
         getDriver().manage().window().maximize();
         System.out.println("Entering the Username ");
-        UserName.sendKeys("auto.full5");
+        UserName.sendKeys("RegressionFullUser2");
         System.out.println("Entering the Password ");
-        Password.sendKeys("Testing@123");
+        Password.sendKeys("Test@123");
         System.out.println("CLicking on the submit button ");
         SubmitBtn.click();
         Thread.sleep(2000);
