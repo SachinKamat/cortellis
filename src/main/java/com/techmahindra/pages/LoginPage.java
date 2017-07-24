@@ -43,6 +43,6 @@ public class LoginPage extends PageObject{
     public void logoutUser() throws InterruptedException {
         System.out.println("Logged Out from the application");
         LogOut.click();
-        Thread.sleep(1000);
+        Thread.sleep(3000);
     }
 }
