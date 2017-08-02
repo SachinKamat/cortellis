@@ -2,7 +2,7 @@
 @Feature_Navigation
   Feature: Navigation
 
-    @Smoke_Navigation_001 @issue:LS-32801
+    @Smoke_Navigation_001 @issue:COT-1
     Scenario: Verify filters of 'Deals' datset
       Given I open the application
       When I perform Login operation by entering username and password
@@ -13,7 +13,7 @@
       Then I verify Home Page is displayed
       Then I logged out from the application
 
-    @Smoke_Navigation_002 @issue:LS-32802
+    @Smoke_Navigation_002 @issue:COT-2
     Scenario: Verify filters of 'Drugs' datset
       Given I open the application
       When I perform Login operation by entering username and password
