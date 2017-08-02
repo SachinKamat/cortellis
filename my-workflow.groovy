@@ -1,10 +1,13 @@
 /**
  * Created by SK00447696 on 7/25/17.
  */
-when 'Open', {
-    'success' should: 'Resolve Issue'
+when 'To Do', {
+    'failure' should: 'In Progress'
 }
 
+when 'To Do', {
+    'success' should: 'In Progress'
+}
 when 'Reopened', {
     'success' should: 'Resolve Issue'
 }
@@ -14,9 +17,12 @@ when 'Resolved', {
 }
 
 when 'In Progress', {
-    'success' should: ['Stop Progress','Resolve Issue']
+    'success' should: 'Done'
 }
 
-when 'Closed', {
-    'failure' should: 'Reopen Issue'
+when 'In Progress', {
+    'failure' should: 'To Do'
+}
+when 'Done', {
+    'failure' should: 'In Progress'
 }
