@@ -16,5 +16,5 @@ when 'IN PROGRESS', {
     'failure' should: 'TO DO'
 }
 when 'DONE', {
-    'failure' should: 'IN PROGRESS'
+    'failure' should: 'TO DO'
 }

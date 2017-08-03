@@ -2,7 +2,7 @@
 @Feature_Smoke
 Feature:Smoke
 
-  @Smoke_Deal_001 @Acceptance @issue:COT-3
+  @Smoke_Deal_001 @Acceptance @issue:COT-3 @issue:COT-11
   Scenario: Verify results of 'Deals' dataset
     Given I open the application
     When I perform Login operation by entering username and password
