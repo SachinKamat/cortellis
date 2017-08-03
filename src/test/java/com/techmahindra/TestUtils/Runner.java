@@ -11,6 +11,6 @@ import org.junit.runner.RunWith;
  */
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(format = {"pretty","html:target/cucumber-htmlreport","junit:target/cucumber-junit-report/cuc.xml"},features={"src/test/resources/features/"}
-        , glue = {"com.techmahindra"})
+        , glue = {"com.techmahindra"},tags = "@Smoke_Deal_001")
 public class Runner{}
 
