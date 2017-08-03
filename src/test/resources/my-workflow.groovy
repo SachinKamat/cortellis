@@ -13,8 +13,8 @@ when 'In Progress', {
 }
 
 when 'In Progress', {
-    'failure' should: 'To Do'
+    'error' should: 'To Do'
 }
 when 'Done', {
-    'failure' should: 'To Do'
+    'error' should: 'To Do'
 }
