@@ -1,20 +1,20 @@
 /**
  * Created by SK00447696 on 7/25/17.
  */
-when 'TO DO', {
-    'FAILURE' should: 'IN PROGRESS'
+when 'To Do', {
+    'success' should: 'In Progress'
 }
 
-when 'TO DO', {
-    'SUCCESS' should: 'IN PROGRESS'
+when 'To Do', {
+    'success' should: 'In Progress'
 }
-when 'IN PROGRESS', {
-    'SUCCESS' should: 'DONE'
+when 'In Progress', {
+    'success' should: 'Done'
 }
 
-when 'IN PROGRESS', {
-    'FAILURE' should: 'TO DO'
+when 'In Progress', {
+    'failure' should: 'To Do'
 }
-when 'DONE', {
-    'FAILURE' should: 'TO DO'
+when 'Done', {
+    'failure' should: 'To Do'
 }
