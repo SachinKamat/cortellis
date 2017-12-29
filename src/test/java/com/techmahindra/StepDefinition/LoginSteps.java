@@ -11,6 +11,11 @@ import com.techmahindra.pages.HomePage;
 import com.techmahindra.pages.LoginPage;
 import com.techmahindra.pages.User;
 
+import java.io.FileInputStream;
+import java.util.Properties;
+
+import static com.techmahindra.pages.User.userdata;
+
 /**
  * Created by SK00447696 on 2/14/2017.
  */
@@ -42,7 +47,14 @@ public class LoginSteps {
 
     @When("^I perform Login operation by entering username and password$")
     public void iPerformLoginOperationByEnteringUsernameAndPassword() throws Throwable {
-        loginpage.loginUser();
+        String usernameKey=userdata+"Username";
+        String passwordKey=userdata+"Password";
+        Properties prop=new Properties();
+        prop.load(new FileInputStream("Credentials.properties"));
+        String userName = (String)prop.get(usernameKey);
+        String passWord= (String)prop.get(passwordKey);
+        System.out.println("UserName "+usernameKey+" Password "+passwordKey);
+        loginpage.loginUser(userName,passWord);
     }
 
     @Then("^I logged out from the application$")

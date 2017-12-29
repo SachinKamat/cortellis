@@ -17,10 +17,10 @@ public class QuickSearch extends PageObject {
     @Steps
     LoginPage loginpage;
 
-    @FindBy(xpath = ".//*[@id='pageheader']//a[@title='Search' or @title='SEARCH']")
+    @FindBy(xpath = "//button[@class='quick-search-button ng-scope']")
     WebElementFacade buttonSearch;
 
-    @FindBy(id = "qs")
+    @FindBy(id = "qsearch")
     WebElementFacade queryString;
 
     @FindBy(xpath = ".//*[@id='gt-content-inner-cortellis']//span[@class='navText']")

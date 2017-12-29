@@ -8,6 +8,7 @@ import net.thucydides.core.steps.ScenarioSteps;
  */
 public class User extends ScenarioSteps {
     HomePage homePage;
+    public static int userdata=1;
 
     @Step
     public void opens_home_page() {

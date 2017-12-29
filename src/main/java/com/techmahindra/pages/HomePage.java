@@ -11,14 +11,15 @@ import net.thucydides.core.annotations.DefaultUrl;
 @DefaultUrl("https://stable.cortellis.int.clarivate.com")
 public class HomePage extends PageObject{
 
-    @FindBy(css = "a.primarynav__home")
+    @FindBy(xpath = "//*[@class='cortellis-header-logo']/a")
     WebElementFacade buttonHome;
 
-    @FindBy(xpath = ".//span[1][@class='navText' and contains(text(),'Home')]")
+    @FindBy(xpath = "//*[@class='homepage-container']")
     WebElementFacade homePage;
 
     public void clickButtonHome() throws InterruptedException {
         {
+            Thread.sleep(1000);
             buttonHome.click();
             // WebDriverUtils.waitForElementLoading(5);
             Thread.sleep(3000);

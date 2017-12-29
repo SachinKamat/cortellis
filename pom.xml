@@ -66,29 +66,29 @@
     </dependencies>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.18</version>
-                <configuration>
-                    <includes>
-                        <!-- this will allow us run tests from package during test running -->
-                        <include>com/techmahindra/TestUtils/*.java</include>
-                    </includes>
-                    <!--<systemProperties>-->
-                        <!--&lt;!&ndash; you can pass as parameter webdriver type via Jenkins or TeamCity &ndash;&gt;-->
-                        <!--<webdriver.driver>${webdriver.driver}</webdriver.driver>-->
-                    <!--</systemProperties>-->
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-failsafe-plugin</artifactId>-->
+                <!--<version>2.18</version>-->
+                <!--<configuration>-->
+                    <!--<includes>-->
+                        <!--&lt;!&ndash; this will allow us run tests from package during test running &ndash;&gt;-->
+                        <!--<include>com/techmahindra/TestUtils/*.java</include>-->
+                    <!--</includes>-->
+                    <!--&lt;!&ndash;<systemProperties>&ndash;&gt;-->
+                        <!--&lt;!&ndash;&lt;!&ndash; you can pass as parameter webdriver type via Jenkins or TeamCity &ndash;&gt;&ndash;&gt;-->
+                        <!--&lt;!&ndash;<webdriver.driver>${webdriver.driver}</webdriver.driver>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</systemProperties>&ndash;&gt;-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>integration-test</goal>-->
+                            <!--<goal>verify</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
                 <artifactId>serenity-maven-plugin</artifactId>
@@ -127,6 +127,49 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.20</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <webdriver.base.url>https://stable.cortellis.int.clarivate.com</webdriver.base.url>
+                    </systemPropertyVariables>
+                    <parallel>classes</parallel>
+                    <threadCount>4</threadCount>
+                    <perCoreThreadCount>true</perCoreThreadCount>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.temyers</groupId>
+                <artifactId>cucumber-jvm-parallel-plugin</artifactId>
+                <version>4.2.0</version>
+                <executions>
+                    <execution>
+                        <id>generateRunners</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>generateRunners</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Mandatory -->
+                            <!-- List of package names to scan for glue code. -->
+                            <glue>
+                                <package>com.techmahindra</package>
+                            </glue>
+                            <parallelScheme>FEATURE</parallelScheme>
+                            <customVmTemplate>src/test/resources/cucumber-serenity-runner.vm</customVmTemplate>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
