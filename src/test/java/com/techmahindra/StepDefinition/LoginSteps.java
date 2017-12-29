@@ -71,4 +71,9 @@ public class LoginSteps {
     public void iVerifyHomePageIsDisplayed() throws Throwable {
         homepage.isHomePageDisplayed();
     }
+
+    @When("^I perform Login operation by entering \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void iPerformLoginOperationByEnteringAnd(String userName, String passWord) throws Throwable {
+        loginpage.loginUser(userName,passWord);
+    }
 }

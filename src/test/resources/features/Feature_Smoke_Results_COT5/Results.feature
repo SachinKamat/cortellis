@@ -5,7 +5,7 @@ Feature:Smoke
   @Smoke_Deal_001 @Acceptance @issue:COT-3 @issue:COT-11
   Scenario: Verify results of 'Deals' dataset
     Given I open the application
-    When I perform Login operation by entering username and password
+    When I perform Login operation by entering "FullUserShockwave" and "Test@123"
     And I perform Quick Search by "paracetamol"
     And I navigate to report type "Deals" on page 'Results'
     And dataset "Deals" is selected on page 'Results'
@@ -15,7 +15,7 @@ Feature:Smoke
   @Smoke_Drugs_001 @Acceptance @issue:COT-4 @issue:COT-10
   Scenario: Verify results of 'Drugs' dataset
     Given I open the application
-    When I perform Login operation by entering username and password
+    When I perform Login operation by entering "FullUserShockwave" and "Test@123"
     And I perform Quick Search by "paracetamol"
     And I navigate to report type "Drugs" on page 'Results'
     And dataset "Drugs" is selected on page 'Results'
