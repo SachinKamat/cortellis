@@ -2,7 +2,7 @@
 @Feature_Smoke
 Feature:Smoke
 
-  @Smoke_Deal_001 @Acceptance @issue:COT-3 @issue:COT-11
+  @Smoke_Deal_001 @Acceptance @issue:THEC-3 @issue:THEC-8
   Scenario: Verify results of 'Deals' dataset
     Given I open the application
     When I perform Login operation by entering "FullUserShockwave" and "Test@123"
@@ -12,7 +12,7 @@ Feature:Smoke
     And I click on button 'List view' on page 'Results'
     Then I logged out from the application
 
-  @Smoke_Drugs_001 @Acceptance @issue:COT-4 @issue:COT-10
+  @Smoke_Drugs_001 @Acceptance @issue:THEC-4 @issue:THEC-7
   Scenario: Verify results of 'Drugs' dataset
     Given I open the application
     When I perform Login operation by entering "FullUserShockwave" and "Test@123"
