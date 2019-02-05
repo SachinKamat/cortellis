@@ -1,7 +1,6 @@
 package com.techmahindra.StepDefinition;
 
 import com.techmahindra.pages.ResultsPage;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import net.thucydides.core.annotations.Steps;

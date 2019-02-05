@@ -1,20 +1,20 @@
 package com.techmahindra.StepDefinition;
 
-import cucumber.api.PendingException;
+import com.techmahindra.pages.HomePage;
+import com.techmahindra.pages.LoginPage;
+import com.techmahindra.pages.User;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
-import com.techmahindra.pages.HomePage;
-import com.techmahindra.pages.LoginPage;
-import com.techmahindra.pages.User;
 
 import java.io.FileInputStream;
 import java.util.Properties;
 
 import static com.techmahindra.pages.User.userdata;
+
 
 /**
  * Created by SK00447696 on 2/14/2017.
