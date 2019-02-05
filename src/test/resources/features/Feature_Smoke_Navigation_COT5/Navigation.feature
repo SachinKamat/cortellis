@@ -17,8 +17,8 @@
     Scenario: Verify filters of 'Drugs' datset
       Given I open the application
       When  I perform Login operation by entering "sachin.kamat@clarivate.com" and "Happy@2019"
-#      Given I perform Quick Search by "paracetamol"
-#      And   I navigate to report type "Drugs" on page 'Results'
+      Given I perform Quick Search by "paracetamol"
+      And   I navigate to report type "Drugs" on page 'Results'
 #      And   dataset "Drugs" is selected on page 'Results'
 #      And   I click on button 'Home' on page header
 #      Then  I verify Home Page is displayed

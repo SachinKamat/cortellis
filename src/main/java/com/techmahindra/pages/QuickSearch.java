@@ -17,7 +17,7 @@ public class QuickSearch extends PageObject {
     @Steps
     LoginPage loginpage;
 
-    @FindBy(xpath = "//button[@class='quick-search-button ng-scope']")
+    @FindBy(xpath = "//button[@class='full-search-button ng-scope']")
     WebElementFacade buttonSearch;
 
     @FindBy(id = "qsearch")
