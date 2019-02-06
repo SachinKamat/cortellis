@@ -1,8 +1,9 @@
+
 @version:RT#32
 @Feature_Smoke
 Feature:Smoke
 
-  @Smoke_Deal_001 @Acceptance @issue:THEC-3 @issue:THEC-8
+  @Smoke_Deal_001 @Acceptance @issue:THEC-3 @issue:THEC-8 @test
   Scenario: Verify results of 'Deals' dataset
     Given I open the application
     When  I perform Login operation by entering "FullUserShockwave" and "Test@123"
