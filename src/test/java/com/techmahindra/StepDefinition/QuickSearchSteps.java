@@ -12,7 +12,6 @@ public class QuickSearchSteps {
 
     @Given("^I perform Quick Search by \"([^\"]*)\"$")
     public void iPerformQuickSearchBy(String string) throws Throwable {
-        Thread.sleep(3000);
         boolean actual=quickSearch.setSearchQuery(string);
         System.out.println("actual-->"+actual);
     }
