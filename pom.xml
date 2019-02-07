@@ -66,78 +66,19 @@
     </dependencies>
     <build>
         <plugins>
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-failsafe-plugin</artifactId>-->
-                <!--<version>2.18</version>-->
-                <!--<configuration>-->
-                    <!--<includes>-->
-                        <!--&lt;!&ndash; this will allow us run tests from package during test running &ndash;&gt;-->
-                        <!--<include>com/techmahindra/TestUtils/*.java</include>-->
-                    <!--</includes>-->
-                    <!--&lt;!&ndash;<systemProperties>&ndash;&gt;-->
-                        <!--&lt;!&ndash;&lt;!&ndash; you can pass as parameter webdriver type via Jenkins or TeamCity &ndash;&gt;&ndash;&gt;-->
-                        <!--&lt;!&ndash;<webdriver.driver>${webdriver.driver}</webdriver.driver>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</systemProperties>&ndash;&gt;-->
-                <!--</configuration>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<goals>-->
-                            <!--<goal>integration-test</goal>-->
-                            <!--<goal>verify</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
-            <plugin>
-                <groupId>net.serenity-bdd.maven.plugins</groupId>
-                <artifactId>serenity-maven-plugin</artifactId>
-                <version>${serenity.maven.version}</version>
-                <executions>
-                    <execution>
-                        <id>serenity-reports</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>aggregate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>net.serenity-bdd</groupId>
-                        <artifactId>serenity-core</artifactId>
-                        <version>${serenity.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>net.serenity-bdd</groupId>
-                        <artifactId>serenity-jira-requirements-provider</artifactId>
-                        <version>1.2.0</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>net.serenity-bdd</groupId>
-                        <artifactId>serenity-jira-plugin</artifactId>
-                        <version>1.2.0</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
+                <artifactId>maven-failsafe-plugin</artifactId>
                 <version>2.18</version>
                 <configuration>
-                    <testFailureIgnore>true</testFailureIgnore>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.20</version>
-                <configuration>
-                    <systemPropertyVariables>
-                        <webdriver.base.url>https://stable.cortellis.int.clarivate.com</webdriver.base.url>
-                    </systemPropertyVariables>
-                    <parallel>classes</parallel>
-                    <threadCount>4</threadCount>
-                    <perCoreThreadCount>true</perCoreThreadCount>
+                    <includes>
+                        <!-- this will allow us run tests from package during test running -->
+                        <include>com/techmahindra/TestUtils/*.java</include>
+                    </includes>
+                    <!--<systemProperties>-->
+                        <!--&lt;!&ndash; you can pass as parameter webdriver type via Jenkins or TeamCity &ndash;&gt;-->
+                        <!--<webdriver.driver>${webdriver.driver}</webdriver.driver>-->
+                    <!--</systemProperties>-->
                 </configuration>
                 <executions>
                     <execution>
@@ -148,29 +89,88 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--<plugin>-->
+                <!--<groupId>net.serenity-bdd.maven.plugins</groupId>-->
+                <!--<artifactId>serenity-maven-plugin</artifactId>-->
+                <!--<version>${serenity.maven.version}</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>serenity-reports</id>-->
+                        <!--<phase>post-integration-test</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>aggregate</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<dependencies>-->
+                    <!--<dependency>-->
+                        <!--<groupId>net.serenity-bdd</groupId>-->
+                        <!--<artifactId>serenity-core</artifactId>-->
+                        <!--<version>${serenity.version}</version>-->
+                    <!--</dependency>-->
+                    <!--<dependency>-->
+                        <!--<groupId>net.serenity-bdd</groupId>-->
+                        <!--<artifactId>serenity-jira-requirements-provider</artifactId>-->
+                        <!--<version>1.2.0</version>-->
+                    <!--</dependency>-->
+                    <!--<dependency>-->
+                        <!--<groupId>net.serenity-bdd</groupId>-->
+                        <!--<artifactId>serenity-jira-plugin</artifactId>-->
+                        <!--<version>1.2.0</version>-->
+                    <!--</dependency>-->
+                <!--</dependencies>-->
+            <!--</plugin>-->
             <plugin>
-                <groupId>com.github.temyers</groupId>
-                <artifactId>cucumber-jvm-parallel-plugin</artifactId>
-                <version>4.2.0</version>
-                <executions>
-                    <execution>
-                        <id>generateRunners</id>
-                        <phase>generate-test-sources</phase>
-                        <goals>
-                            <goal>generateRunners</goal>
-                        </goals>
-                        <configuration>
-                            <!-- Mandatory -->
-                            <!-- List of package names to scan for glue code. -->
-                            <glue>
-                                <package>com.techmahindra</package>
-                            </glue>
-                            <parallelScheme>FEATURE</parallelScheme>
-                            <customVmTemplate>src/test/resources/cucumber-serenity-runner.vm</customVmTemplate>
-                        </configuration>
-                    </execution>
-                </executions>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18</version>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
             </plugin>
+            <!--<plugin>-->
+                <!--<artifactId>maven-failsafe-plugin</artifactId>-->
+                <!--<version>2.20</version>-->
+                <!--&lt;!&ndash;<configuration>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<systemPropertyVariables>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<webdriver.base.url>https://stable.cortellis.int.clarivate.com</webdriver.base.url>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</systemPropertyVariables>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<parallel>classes</parallel>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<threadCount>4</threadCount>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<perCoreThreadCount>true</perCoreThreadCount>&ndash;&gt;-->
+                <!--&lt;!&ndash;</configuration>&ndash;&gt;-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>integration-test</goal>-->
+                            <!--<goal>verify</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>com.github.temyers</groupId>-->
+                <!--<artifactId>cucumber-jvm-parallel-plugin</artifactId>-->
+                <!--<version>4.2.0</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>generateRunners</id>-->
+                        <!--<phase>generate-test-sources</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>generateRunners</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--&lt;!&ndash; Mandatory &ndash;&gt;-->
+                            <!--&lt;!&ndash; List of package names to scan for glue code. &ndash;&gt;-->
+                            <!--<glue>-->
+                                <!--<package>com.techmahindra</package>-->
+                            <!--</glue>-->
+                            <!--<parallelScheme>FEATURE</parallelScheme>-->
+                            <!--<customVmTemplate>src/test/resources/cucumber-serenity-runner.vm</customVmTemplate>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 </project>
