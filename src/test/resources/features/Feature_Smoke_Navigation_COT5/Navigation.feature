@@ -13,7 +13,7 @@
       Then  I verify Home Page is displayed
       Then  I logged out from the application
 
-    @Smoke_Navigation_002 @issue:COR-1
+    @Smoke_Navigation_002 @issue:THEC-7
     Scenario: Verify filters of 'Drugs' datset
       Given I open the application
       When  I perform Login operation by entering username and password
